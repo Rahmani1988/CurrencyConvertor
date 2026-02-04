@@ -24,10 +24,18 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp) // Engine for Android
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin) // Engine for iOS
         }
     }
 }
