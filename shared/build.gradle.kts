@@ -1,16 +1,30 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.codingfeline.buildkonfig.compiler.FieldSpec
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.buildkonfig)
 }
 
-kotlin {
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+buildkonfig {
+    packageName = "org.reza.currency.shared"
+
+    // Default configuration (used for all builds)
+    defaultConfigs {
+        buildConfigField(type = FieldSpec.Type.STRING, name = "BASE_URL", value = "https://v6.exchangerate-api.com/v6/")
+    }
+
+    // Optional: Override for debug builds
+    targetConfigs {
+        create("debug") {
+            buildConfigField(type = FieldSpec.Type.STRING, name = "BASE_URL", value = "https://v6.exchangerate-api.com/v6/")
         }
     }
+}
+
+
+kotlin {
+    androidTarget()
     
     listOf(
         iosArm64(),
