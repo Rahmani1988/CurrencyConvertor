@@ -15,10 +15,13 @@ val networkModule = module {
     single {
         HttpClient {
             install(ContentNegotiation) {
-                json(Json { ignoreUnknownKeys = true })
+                json(Json {
+                    ignoreUnknownKeys = true
+                    prettyPrint = true
+                })
             }
             defaultRequest {
-                url(BuildKonfig.BASE_URL)
+                url("${BuildKonfig.BASE_URL}${BuildKonfig.EXCHANGE_API_KEY}/")
             }
         }
     }

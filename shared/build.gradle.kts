@@ -1,4 +1,5 @@
 import com.codingfeline.buildkonfig.compiler.FieldSpec
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -6,12 +7,22 @@ plugins {
     alias(libs.plugins.buildkonfig)
 }
 
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        load(file.inputStream())
+    }
+}
+
+val apiKey = localProperties.getProperty("EXCHANGE_API_KEY") ?: ""
+
 buildkonfig {
     packageName = "org.reza.currency.shared"
 
     // Default configuration (used for all builds)
     defaultConfigs {
         buildConfigField(type = FieldSpec.Type.STRING, name = "BASE_URL", value = "https://v6.exchangerate-api.com/v6/")
+        buildConfigField(FieldSpec.Type.STRING, "EXCHANGE_API_KEY", apiKey)
     }
 
     // Optional: Override for debug builds
