@@ -5,7 +5,7 @@ import org.koin.dsl.KoinAppDeclaration
 
 fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     appDeclaration()
-    modules(networkModule)
+    modules(networkModule, repositoryModule)
 }
 
 // Special helper JUST for iOS/Swift
