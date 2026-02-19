@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ExchangeResponse(
-    val result: String,
-    val documentation: String,
+    @SerialName("result") val result: String,
+    @SerialName("documentation") val documentation: String,
     @SerialName("terms_of_use") val termsOfUse: String,
     @SerialName("time_last_update_unix") val timeLastUpdateUnix: Long,
     @SerialName("time_last_update_utc") val timeLastUpdateUtc: String,

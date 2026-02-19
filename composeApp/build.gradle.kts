@@ -22,6 +22,9 @@ kotlin {
 
             // di
             implementation(libs.koin.android)
+
+            // Navigation
+            implementation(libs.androidx.navigation.compose)
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
