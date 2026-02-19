@@ -1,4 +1,4 @@
-package org.reza.data.model.response
+package org.reza.currency.data.model.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -20,12 +20,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.reza.data.model.response.ExchangeResponse
-import org.reza.viewmodel.ExchangeUiState
-import org.reza.viewmodel.ExchangeViewModel
+import org.koin.androidx.compose.koinViewModel
+import org.reza.currency.data.model.response.ExchangeResponse
+import org.reza.currency.viewmodel.ExchangeUiState
+import org.reza.currency.viewmodel.ExchangeViewModel
 
 @Composable
-fun ExchangeScreen(viewModel: ExchangeViewModel) {
+fun ExchangeScreen(
+    viewModel: ExchangeViewModel = koinViewModel(),
+    onNavigateToDetails: (String) -> Unit
+) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {

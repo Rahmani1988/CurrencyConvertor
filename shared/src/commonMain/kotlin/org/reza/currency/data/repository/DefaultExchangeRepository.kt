@@ -1,7 +1,7 @@
-package org.reza.data.repository
+package org.reza.currency.data.repository
 
-import org.reza.data.api.ApiService
-import org.reza.data.model.response.ExchangeResponse
+import org.reza.currency.data.api.ApiService
+import org.reza.currency.data.model.response.ExchangeResponse
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 

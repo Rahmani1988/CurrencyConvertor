@@ -1,4 +1,4 @@
-package org.reza.di
+package org.reza.currency.di
 
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration

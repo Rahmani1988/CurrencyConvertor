@@ -1,12 +1,12 @@
-package org.reza.viewmodel
+package org.reza.currency.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.reza.data.model.response.ExchangeResponse
-import org.reza.data.repository.ExchangeRepository
+import org.reza.currency.data.model.response.ExchangeResponse
+import org.reza.currency.data.repository.ExchangeRepository
 
 class ExchangeViewModel(
     private val repository: ExchangeRepository
