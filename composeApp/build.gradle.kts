@@ -22,11 +22,11 @@ kotlin {
 
             // di
             implementation(libs.koin.android)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
 
             // Navigation
             implementation(libs.androidx.navigation.compose)
-
-            implementation("io.insert-koin:koin-androidx-compose:3.5.3")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -75,4 +75,3 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
-

@@ -1,4 +1,4 @@
-package org.reza
+package org.reza.currency
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext

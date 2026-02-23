@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.buildkonfig)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 val localProperties = Properties().apply {

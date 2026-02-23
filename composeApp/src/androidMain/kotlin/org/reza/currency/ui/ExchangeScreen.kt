@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.viewmodel.koinViewModel
 import org.reza.currency.data.model.response.ExchangeResponse
 import org.reza.currency.viewmodel.ExchangeUiState
 import org.reza.currency.viewmodel.ExchangeViewModel
