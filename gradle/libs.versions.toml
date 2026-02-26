@@ -17,6 +17,7 @@ ktor = "3.0.0"
 buildkonfig = "0.15.1"
 koin = "4.0.0"
 navigationCompose = "2.9.7"
+skie = "0.10.10"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -55,3 +56,4 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+touchlab-skie = { id = "co.touchlab.skie", version.ref = "skie" }

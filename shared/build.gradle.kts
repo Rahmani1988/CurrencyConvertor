@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.buildkonfig)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.touchlab.skie)
 }
 
 val localProperties = Properties().apply {
@@ -40,6 +41,7 @@ kotlin {
     
     listOf(
         iosArm64(),
+        iosX64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {

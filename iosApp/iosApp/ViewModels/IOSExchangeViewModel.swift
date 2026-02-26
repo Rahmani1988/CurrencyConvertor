@@ -7,19 +7,24 @@ import Shared
 
 @MainActor
 class IOSExchangeViewModel: ObservableObject {
-    let wrapped: ExchangeViewModel
-    @Published var state: ExchangeUiState = ExchangeUiStateIdle()
+    let viewModel: ExchangeViewModel
+    @Published var uiState: ExchangeUiState = .idle
 
     init(repository: ExchangeRepository) {
-        self.wrapped = ExchangeViewModel(repository: repository)
+        self.viewModel = ExchangeViewModel(repository: repository)
+        observeState()
+    }
 
-        // Start observing the Kotlin StateFlow
-        Task {
-
-        }
+    private func observeState() {
+        // collecting the StateFlow from Kotlin
+         Task {
+             for await state in viewModel.uiState {
+                 self.uiState = state
+             }
+         }
     }
 
     func fetchRates(base: String) {
-        wrapped.fetchRates(base: base)
+        viewModel.fetchRates(base: base)
     }
 }
