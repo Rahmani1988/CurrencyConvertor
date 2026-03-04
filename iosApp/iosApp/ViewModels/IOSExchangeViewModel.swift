@@ -7,11 +7,11 @@ import Shared
 
 @MainActor
 class IOSExchangeViewModel: ObservableObject {
-    let viewModel: ExchangeViewModel
-    @Published var uiState: ExchangeUiState = .idle
+    private let viewModel: ExchangeViewModel
+    @Published var uiState: ExchangeUiState = ExchangeUiStateIdle()
 
     init(repository: ExchangeRepository) {
-        self.viewModel = ExchangeViewModel(repository: repository)
+        self.viewModel = KoinHelperKt.getExchangeViewModel()
         observeState()
     }
 

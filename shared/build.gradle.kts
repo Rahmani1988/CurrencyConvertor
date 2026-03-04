@@ -79,6 +79,15 @@ kotlin {
     }
 }
 
+skie {
+    features {
+        group {
+            // This ensures all Flows are converted to AsyncSequences
+            coroutinesInterop.set(true)
+        }
+    }
+}
+
 android {
     namespace = "org.reza.currency.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
