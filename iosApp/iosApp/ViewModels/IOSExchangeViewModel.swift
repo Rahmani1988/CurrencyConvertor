@@ -16,12 +16,12 @@ class IOSExchangeViewModel: ObservableObject {
     }
 
     private func observeState() {
-        // collecting the StateFlow from Kotlin
-         Task {
-             for await state in viewModel.uiState {
-                 self.uiState = state
-             }
-         }
+        Task {
+            // SKIE creates a wrapper that conforms to AsyncSequence
+            for await state in viewModel.uiState {
+                self.uiState = state
+            }
+        }
     }
 
     func fetchRates(base: String) {

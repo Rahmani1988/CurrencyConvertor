@@ -3,6 +3,7 @@ package org.reza.currency.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.reza.currency.data.model.response.ExchangeResponse
@@ -13,7 +14,7 @@ class ExchangeViewModel(
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<ExchangeUiState>(ExchangeUiState.Idle)
-    val uiState = _uiState.asStateFlow()
+    val uiState: StateFlow<ExchangeUiState> = _uiState.asStateFlow()
 
     fun fetchRates(base: String) {
         viewModelScope.launch {
