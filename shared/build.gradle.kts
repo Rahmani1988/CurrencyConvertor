@@ -1,3 +1,4 @@
+import co.touchlab.skie.configuration.FlowInterop
 import com.codingfeline.buildkonfig.compiler.FieldSpec
 import java.util.Properties
 
@@ -75,6 +76,15 @@ kotlin {
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin) // Engine for iOS
+        }
+    }
+
+    @Suppress("OPT_IN_USAGE")
+    skie {
+        features {
+            group {
+                FlowInterop.Enabled(true)
+            }
         }
     }
 }

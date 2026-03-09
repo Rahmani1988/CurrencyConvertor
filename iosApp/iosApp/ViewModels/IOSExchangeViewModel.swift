@@ -10,7 +10,7 @@ class IOSExchangeViewModel: ObservableObject {
     private let viewModel: ExchangeViewModel
     @Published var uiState: ExchangeUiState = ExchangeUiStateIdle()
 
-    init(repository: ExchangeRepository) {
+    init() {
         self.viewModel = KoinHelperKt.getExchangeViewModel()
         observeState()
     }
