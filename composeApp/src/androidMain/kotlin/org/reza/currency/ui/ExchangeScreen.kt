@@ -1,5 +1,6 @@
 package org.reza.currency.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -54,7 +55,7 @@ fun ExchangeScreen(
 
                 is ExchangeUiState.Loading -> CircularProgressIndicator()
                 is ExchangeUiState.Error -> Text("Error: ${state.message}", color = Color.Red)
-                is ExchangeUiState.Success -> RateList(state.data)
+                is ExchangeUiState.Success -> RateList(state.data, onClink = onNavigateToDetails)
             }
         }
     }
@@ -76,17 +77,21 @@ fun IdleItem(
             Text("Fetch USD Rates")
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Text("Enter a currency to start")
+        Text("Tap the button to start")
     }
 }
 
 @Composable
-fun RateList(data: ExchangeResponse) {
+fun RateList(
+    data: ExchangeResponse,
+    onClink: (String) -> Unit
+) {
     LazyColumn {
         items(data.conversionRates.toList()) { (currency, rate) ->
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .clickable { onClink(currency) }
                     .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {

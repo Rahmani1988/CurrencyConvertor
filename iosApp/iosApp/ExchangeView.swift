@@ -47,7 +47,7 @@ struct IdleView: View {
             }
             .buttonStyle(.borderedProminent)
 
-            Text("Enter a currency to start")
+            Text("Tap the button to start")
                 .foregroundColor(.secondary)
         }
     }
