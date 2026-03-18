@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ExchangeView: View {
     @StateObject private var viewModel = IOSExchangeViewModel()
+    @EnvironmentObject var router: AppRouter
 
     var body: some View {
         NavigationStack {
@@ -15,7 +16,9 @@ struct ExchangeView: View {
                     ProgressView("Fetching Rates...")
 
                 case let success as ExchangeUiStateSuccess:
-                    RateListView(data: success.data)
+                    RateListView(data: success.data) { currencyCode in
+                        router.navigate(to: .details(currencyCode: currencyCode))
+                    }
 
                 case let error as ExchangeUiStateError:
                     ContentUnavailableView(
@@ -43,7 +46,6 @@ struct IdleView: View {
         VStack(spacing: 16) {
             Button(action: onFetch) {
                 Text("Fetch USD Rates")
-                    .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
 
@@ -55,20 +57,25 @@ struct IdleView: View {
 
 struct RateListView: View {
     let data: ExchangeResponse
+    var onSelect: (String) -> Void  // Callback for navigation
 
     var body: some View {
         List {
-            // Mapping the dictionary to a sorted array for the List
             let rates = data.conversionRates.sorted(by: { $0.key < $1.key })
 
             ForEach(rates, id: \.key) { currency, rate in
-                HStack {
-                    Text(currency)
-                        .fontWeight(.bold)
-                    Spacer()
-                    Text("\(rate)")
+                Button(action: { onSelect(currency) }) {
+                    HStack {
+                        Text(currency)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(rate)")
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 8)
+                    .contentShape(Rectangle())
                 }
-                .padding(.vertical, 4)
+                .buttonStyle(.plain)  // Keeps the row looking like a standard list item
             }
         }
         .listStyle(.plain)
