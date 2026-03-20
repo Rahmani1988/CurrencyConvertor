@@ -4,6 +4,9 @@ A modern Kotlin Multiplatform (KMP) mobile application that provides real-time c
 This project demonstrates a shared-logic architecture where the core business logic, networking, and
 dependency injection are unified, while the UI remains native to each platform.
 
+<img width="300" height="600" alt="android-screenshot" src="https://github.com/user-attachments/assets/10f521b8-6734-43dd-9581-2d14abb76f17" />
+<img width="300" height="600" alt="iOS-screenshot" src="https://github.com/user-attachments/assets/f5c29f5a-e413-4be8-8709-c3bd02926224" />
+
 ---
 
 ## 🚀 Tech Stack
