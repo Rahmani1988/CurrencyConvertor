@@ -7,10 +7,6 @@ dependency injection are unified, while the UI remains native to each platform.
 <img width="300" height="600" alt="android-screenshot" src="https://github.com/user-attachments/assets/10f521b8-6734-43dd-9581-2d14abb76f17" />
 <img width="300" height="600" alt="iOS-screenshot" src="https://github.com/user-attachments/assets/f5c29f5a-e413-4be8-8709-c3bd02926224" />
 
-https://github.com/user-attachments/assets/03ea89b7-a514-4724-b63e-0a25a782a58c
-[android-demo.webm](https://github.com/user-attachments/assets/11c4f124-103e-4d56-a745-0333a199f537)
-
-
 ---
 
 ## 🚀 Tech Stack
